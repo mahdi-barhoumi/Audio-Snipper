@@ -1,0 +1,31 @@
+﻿<Window x:Class="Audio_Snipper.SnippingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:svl="clr-namespace:WPFSoundVisualizationLib;assembly=WPFSoundVisualizationLib"
+        xmlns:local="clr-namespace:Audio_Snipper"
+        mc:Ignorable="d"
+        Title="Audio Snipper"
+		Height="450"
+		Width="800"
+		ShowInTaskbar="False"
+		ResizeMode="NoResize"
+		Topmost="True"
+		WindowState="Maximized"
+		WindowStartupLocation="CenterScreen"
+		WindowStyle="None"
+		AllowsTransparency="True"
+		Background="#3F000000">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Button Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Grid.Column="1" Click="Save"/>
+		<Button Content="Close" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="50,0,0,0" Grid.Column="1" Click="Exit"/>
+		<Button Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="-50,0,0,0" Grid.Column="1" Click="Pause"/>
+		<Button Content="Play" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="-100,0,0,0" Grid.Column="1" Click="Play"/>
+		<svl:WaveformTimeline x:Name="waveformTimeline" Height="250" Margin="210,150,210,150" Background="White" Foreground="LightGreen" Grid.ColumnSpan="2"/>
+	</Grid>
+</Window>

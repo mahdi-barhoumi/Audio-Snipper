@@ -1,0 +1,8 @@
+﻿<Application
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Audio_Snipper"
+             x:Name="Audio_Snipper"
+             x:Class="Audio_Snipper.App"
+             ShutdownMode="OnExplicitShutdown"
+/>
