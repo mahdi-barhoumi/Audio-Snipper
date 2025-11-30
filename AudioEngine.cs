@@ -294,7 +294,7 @@ namespace Audio_Snipper
 			waveOutDevice.Init(inputStream);
 
 			ChannelPosition = 0;
-			ChannelLength = activeStream.TotalTime.TotalSeconds;
+			ChannelLength = inputStream.TotalTime.TotalSeconds;
 
 			IsRecording = false;
 		}

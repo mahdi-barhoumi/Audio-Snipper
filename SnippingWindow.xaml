@@ -3,29 +3,83 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:svl="clr-namespace:WPFSoundVisualizationLib;assembly=WPFSoundVisualizationLib"
+        xmlns:svl="clr-namespace:WPFSoundVisualizationLib;assembly=WPFSoundVisualizationLib"
         xmlns:local="clr-namespace:Audio_Snipper"
         mc:Ignorable="d"
         Title="Audio Snipper"
-		Height="450"
-		Width="800"
-		ShowInTaskbar="False"
-		ResizeMode="NoResize"
-		Topmost="True"
-		WindowState="Maximized"
-		WindowStartupLocation="CenterScreen"
-		WindowStyle="None"
-		AllowsTransparency="True"
-		Background="#3F000000">
+        Height="450"
+        Width="800"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        Topmost="True"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="#3F000000">
+
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
-			<ColumnDefinition/>
+			<ColumnDefinition />
+			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<Button Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Grid.Column="1" Click="Save"/>
-		<Button Content="Close" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="50,0,0,0" Grid.Column="1" Click="Exit"/>
-		<Button Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="-50,0,0,0" Grid.Column="1" Click="Pause"/>
-		<Button Content="Play" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="-100,0,0,0" Grid.Column="1" Click="Play"/>
-		<svl:WaveformTimeline x:Name="waveformTimeline" Height="250" Margin="210,150,210,150" Background="White" Foreground="LightGreen" Grid.ColumnSpan="2"/>
+
+		<!-- BUTTONS (unchanged) -->
+		<Button Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Width="50" Height="50" Grid.Column="1" Click="Save" />
+
+		<Button Content="Close" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Width="50" Height="50" Margin="50,0,0,0"
+                Grid.Column="1" Click="Exit" />
+
+		<Button Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Width="50" Height="50" Margin="-50,0,0,0"
+                Grid.Column="1" Click="Pause" />
+
+		<Button Content="Play" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Width="50" Height="50" Margin="-100,0,0,0"
+                Grid.Column="1" Click="Play" />
+
+
+		<!-- CENTERED WAVEFORM: 60% width + 40% height -->
+		<Grid Grid.ColumnSpan="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="3.5*" />
+				<!-- 35% top -->
+				<RowDefinition Height="3*" />
+				<!-- 30% waveform -->
+				<RowDefinition Height="3.5*" />
+				<!-- 35% bottom -->
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*" />
+				<!-- 20% left -->
+				<ColumnDefinition Width="6*" />
+				<!-- 60% waveform -->
+				<ColumnDefinition Width="2*" />
+				<!-- 20% right -->
+			</Grid.ColumnDefinitions>
+
+			<svl:WaveformTimeline Grid.Row="1" Grid.Column="1"
+                                  x:Name="waveformTimeline"
+                                  Background="#BF646464"
+                                  Foreground="#FF006CBF"
+                                  RepeatRegionBrush="#26006CBF"
+                                  ProgressBarBrush="#FF006CBF"
+                                  BorderBrush="#FF5A5A5A"
+                                  TimelineTickBrush="#FF006CBF"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                                  Margin="0">
+				<svl:WaveformTimeline.RightLevelBrush>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FF3B6A97" Offset="0" />
+						<GradientStop Color="#FF39A9FF" Offset="1" />
+					</LinearGradientBrush>
+				</svl:WaveformTimeline.RightLevelBrush>
+			</svl:WaveformTimeline>
+		</Grid>
+
 	</Grid>
 </Window>
